@@ -1,0 +1,22 @@
+[Unit]
+Description=MeshCore NWS severe-weather bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=meshcore-wxbot
+Group=meshcore-wxbot
+SupplementaryGroups=dialout
+ExecStart=/opt/meshcore-wxbot/venv/bin/meshcore-wxbot -c /etc/meshcore-wxbot/config.yaml run
+Restart=on-failure
+RestartSec=10
+StateDirectory=meshcore-wxbot
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/meshcore-wxbot
+
+[Install]
+WantedBy=multi-user.target

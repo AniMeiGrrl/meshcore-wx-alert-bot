@@ -1,0 +1,33 @@
+nws:
+  # NWS requires an identifying User-Agent with contact information.
+  user_agent: "meshcore-wxbot/1.0 (operator@example.com)"
+  poll_seconds: 60
+  # Also inspect recent products so CAP cancellations (excluded by "active") arrive.
+  history_minutes: 15
+  request_timeout_seconds: 20
+  counties:
+    # Examples only. Run: meshcore-wxbot list-counties MI
+    - {code: MIC081, name: Kent}
+  events:
+    - Tornado Warning
+    - Severe Thunderstorm Warning
+    - Flash Flood Warning
+    - Tornado Watch
+    - Severe Thunderstorm Watch
+
+meshcore:
+  # Prefer the stable path shown by: ls -l /dev/serial/by-id/
+  serial_port: /dev/serial/by-id/REPLACE_WITH_YOUR_RADIO
+  baudrate: 115200
+  # MeshCore channels are addressed by zero-based index; 0 is public.
+  channel_index: 0
+  # Official clients specify 133 characters; enforce 133 UTF-8 bytes safely.
+  max_message_bytes: 133
+  min_send_interval_seconds: 5
+  reconnect_initial_seconds: 2
+  reconnect_max_seconds: 60
+
+app:
+  database: /var/lib/meshcore-wxbot/state.sqlite3
+  timezone: America/New_York
+  dry_run: true
