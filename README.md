@@ -48,7 +48,7 @@ TAKE SHELTER NOW.
 
 ## Requirements
 
-- Debian 12/13 or Ubuntu 22.04/24.04;
+- Debian 12/13 or Ubuntu 22/24/26;
 - Python 3.11 or newer;
 - Internet access to `api.weather.gov`;
 - a supported radio running MeshCore **USB Companion** firmware;
@@ -214,4 +214,4 @@ pytest
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+GNU Public
